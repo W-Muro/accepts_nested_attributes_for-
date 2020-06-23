@@ -1,0 +1,15 @@
+<%= form_for @work do |f| %>
+  <%= f.label :company, "会社名" %>
+  <%= f.text_area :company %>
+  <%= f.fields_for :work_places do |ff| %>
+  　 <%= ff.label :place_id, "渋谷" %>
+  　 <%= ff.check_box :place_id %>
+  　 <%= ff.label :place_id, "新宿" %>
+  　 <%= ff.check_box :place_id %>
+  　 <%= ff.label :place_id, "池袋" %>
+   　<%= ff.check_box :place_id %>
+   <%# collection_check_boxesの場合 %>
+   <%# <%= f.collection_check_boxes(:places, @places, :id, :placename) %> %>
+  <% end %>
+  <%= f.submit "投稿" %>
+<% end %>
